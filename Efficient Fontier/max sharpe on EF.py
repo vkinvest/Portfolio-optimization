@@ -50,6 +50,7 @@ sharpe_ratio = pfolio_returns / pfolio_volatilities
 portfolio.plot(x='Volatility', y='Return', kind='scatter', figsize=(9, 5));
 plt.xlabel('Expected Volatility')
 plt.ylabel('Expected Return')
+plt.show()
 
 
 mu = expected_returns.mean_historical_return(df)
