@@ -5,12 +5,16 @@ import matplotlib.pyplot as plt
 from pypfopt import risk_models
 from pypfopt import expected_returns
 from pypfopt import EfficientFrontier
+import datetime as dt
+
 
 # 1 get dataa
 ticker = ['tsla', 'goog', 'aapl']
+today = dt.date.today()
+
 df = pd.DataFrame()
 for t in ticker:
-    df[t] = yf.download(t, start="2020-01-01", end="2021-10-02")['Adj Close']
+    df[t] = yf.download(t, start="2021-01-01", end=today)['Adj Close']
 
 (df / df.iloc[0] * 100).plot(figsize=(10, 5))
 logreturns = np.log(df / df.shift(1))
